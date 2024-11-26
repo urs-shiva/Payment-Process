@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment process</title>
+    <script>
+        function payclick()
+        {
+            var Card=document.getElementById("txtcard").value;
+            var CVV=document.getElementById("txtcvv").value;
+            var Expiry=document.getElementById("txtexpiry").value;
+            var Para=document.getElementById("para");
+
+            if(Card==="")
+            {
+                Para.innerHTML="Please enter a card details".fontcolor('red');
+            }
+            else{
+                if(Card==="2222444466668888")
+                {
+                    if(CVV==="345")
+                    {
+                        if(Expiry==="2026")
+                        {
+                            Para.innerHTML="Verified Details Succesfully".fontcolor('green');
+                        }
+                        else{
+                            Para.innerHTML="Invalid Expiry selected".fontcolor('red');
+                        }
+                    }
+                    else{
+                        Para.innerHTML="invalid Cvv".fontcolor('red');
+                    }
+                }
+                else{
+                    Para.innerHTML="Inavlid card number".fontcolor('red');
+                }
+            }
+        }
+    </script>
+    <style>
+        p{
+            text-align: center;
+        }
+        fieldset{
+            width: 40%;
+            padding: 20px;
+            background-color: rgb(211, 236, 245);
+            border-radius: 5px;
+        }
+        legend{
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+            font-weight: bold;
+            color: rgb(4, 91, 41);
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Process</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd>
+                <input type="text" id="txtcard">
+            </dd>
+            <dt>CVV</dt>
+            <dd>
+                <input type="text" id="txtcvv">
+            </dd>
+            <dt>Expiry select</dt>
+            <dd>
+                <select id="txtexpiry">
+                    <option value="-1">Select Expiry</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                </select>
+            </dd>
+        </dl>
+        <button onclick="payclick()">Pay Now</button>
+        <br>
+        <br>
+        <p id="para"></p>
+    </fieldset>
+</body>
+</html>
